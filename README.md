@@ -21,5 +21,3 @@ A Python App with healthcheck endpoint on Docker, ECR, EKS, Terraform and GitHub
 
 
 
-
-

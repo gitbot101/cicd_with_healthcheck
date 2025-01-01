@@ -38,7 +38,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         flash(f'Welcome, {form.username.data}!', 'success')
-    return redirect(url_for('login'))
+        return redirect(url_for('login'))
 
     return render_template('login.html', form=form)
 
