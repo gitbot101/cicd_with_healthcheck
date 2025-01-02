@@ -24,7 +24,7 @@ class FlaskAppTests(unittest.TestCase):
         json_data = response.get_json()
         self.assertEqual(json_data['description'], "Gitbot101's pre-interview technical test.")
         self.assertEqual(json_data['version'], "1.0")
-        self.assertInstance(json_data['last_commit_sha'], str) # assert commit SHA is a String type
+        self.assertIsInstance(json_data['last_commit_sha'], str) # assert commit SHA is a String type
 
     if __name__ == '__main__':
         unittest.main()
