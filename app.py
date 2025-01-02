@@ -27,7 +27,7 @@ def get_last_commit_sha():
         ).strip().decode('utf-8')
     except Exception as e:
         return str(e)
-    
+
 
 # A simple Login form with username and password fields
 class LoginForm(FlaskForm):
@@ -59,4 +59,4 @@ def healthcheck():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=3000, debug=True)
-
+    
