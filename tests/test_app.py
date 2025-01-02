@@ -22,7 +22,7 @@ class FlaskAppTests(unittest.TestCase):
         response = self.app.get('/healthcheck')
         self.assertEqual(response.status_code, 200)
         json_data = response.get_json()
-        self.assertEqual(json_data['description'], "Gitbot101's pre-interview technical test")
+        self.assertEqual(json_data['description'], "Gitbot101's pre-interview technical test.")
         self.assertEqual(json_data['version'], "1.0")
         self.assertInstance(json_data['last_commit_sha'], str) # assert commit SHA is a String type
 
