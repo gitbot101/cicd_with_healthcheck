@@ -28,4 +28,4 @@ class FlaskAppTests(unittest.TestCase):
 
     if __name__ == '__main__':
         unittest.main()
-    
+# This is a newline at EOF
