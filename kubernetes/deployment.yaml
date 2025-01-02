@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitbot101-app-deployment
+  labels:
+    app: gitbot101-app
+    environment: "dev"  # Default value, can be set in the pipeline
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitbot101-app
+  template:
+    metadata:
+      labels:
+        app: gitbot101-app
+        environment: "dev"  # Default value, can be set in the pipeline
+    spec:
+      containers:
+        - name: gitbot101-app-container
+          image: ""  # Placeholder for image
+          ports:
+            - containerPort: 80
+          env:
+            - name: ENVIRONMENT
+              value: "dev"  # Can be set from the pipeline
+      imagePullSecrets:
+        - name: gitbot101-app-secret
