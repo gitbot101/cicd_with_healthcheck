@@ -1,6 +1,3 @@
-# Ignore hidden dirs
-.*
-
 # Ignore the venv directory and its contents
 cicdhc
 
