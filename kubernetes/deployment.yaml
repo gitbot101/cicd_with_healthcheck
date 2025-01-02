@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gitbot101-app-deployment
+  name: gitbot101-app-deployment # name of deployment
   labels:
     app: gitbot101-app
     environment: "dev"  # Default value, can be set in the pipeline
