@@ -68,7 +68,9 @@ jobs:
 
       - name: Log in to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
+        uses: aws-actions/amazon-ecr-login@v2
+        with:
+          mask-password: 'true'
 
       - name: Set environment variables based on branch
         run: |
@@ -157,8 +159,8 @@ jobs:
 
       - name: Create ImagePullSecret
         run: |
-          kubectl get secret gab-app-secret || \
-          kubectl create secret docker-registry gab-app-secret \
+          kubectl get secret gitbot101-app-secret || \
+          kubectl create secret docker-registry gitbot101-app-secret \
            --docker-server=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com \
            --docker-username=AWS \
            --docker-password=$(aws ecr get-login-password --region ${{ secrets.AWS_REGION }}) \
