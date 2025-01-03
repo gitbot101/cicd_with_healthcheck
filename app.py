@@ -13,7 +13,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('FLASK_SECRET_KEY', 'default_secret_key')
 
 APP_VERSION = "1.0"
-APP_DESCRIPTION = "Gitbot101's pre-interview technical test."
+APP_DESCRIPTION = "Gitbot101's tech test."
+
 
 def get_last_commit_sha():
     """Get the last commit SHA from Git or environment variable."""
@@ -26,12 +27,14 @@ def get_last_commit_sha():
         ).strip().decode('utf-8')
     except Exception as e:
         return str(e)
-    
+
+
 # A simple Login form with username and password fields
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Login')
+
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
@@ -42,6 +45,7 @@ def login():
 
     return render_template('login.html', form=form)
 
+
 @app.route('/healthcheck', methods=['GET'])
 def healthcheck():
     last_commit_sha = get_last_commit_sha()
@@ -51,6 +55,7 @@ def healthcheck():
         "last_commit_sha": last_commit_sha
     }
     return jsonify(response), 200
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=3000, debug=True)
